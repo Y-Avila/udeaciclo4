@@ -441,7 +441,7 @@ const resolvers = {
         console.log("No esta autenticado, por favor inicie sesión.");
       }
     }, 
-    
+
     // USUARIOS HU_008
 
     estadoProyecto: async (_, { id, estado_proyecto }, { db, Usuarios }) => {
@@ -517,12 +517,27 @@ const start = async () => {
     typeDefs,
     resolvers,
     context: async ({ req }) => {
-      const Usuarios = await getUserFromToken(req.headers.authorization, db);
-      console.log(Usuarios);
+      
+      // Codigo para poder tener acceso a la base de datos con un token temporal mientras se registra o logea,
+      // el acceso a la BD es para poder hacer create al registrarse o un query al logearse
+      //tokenInvitado 
+      //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYWU2N2JjYWNhOWE1ODViZWU3MjU1NyIsImlhdCI6MTYzODgyMjQyOSwiZXhwIjoxNjQxNDE0NDI5fQ.-4-GtZEWbDQJiQ0q48v0RtN2M-kdK4onIWfrfTENcbU
+      /*
+      if(req.headers.authorization){token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYWU2N2JjYWNhOWE1ODViZWU3MjU1NyIsImlhdCI6MTYzODgyMjQyOSwiZXhwIjoxNjQxNDE0NDI5fQ.-4-GtZEWbDQJiQ0q48v0RtN2M-kdK4onIWfrfTENcbU"}
+      else{token = req.headers.authorization;}
+      */
+
+      console.log(req.headers.authorization)
+
+      token = req.headers.authorization 
+      const Usuarios = await getUserFromToken(token, db);
+
+            
       return {
         db,
         Usuarios,
       };
+      
     },
   });
 
