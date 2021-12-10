@@ -10,7 +10,8 @@ export default function SingUp({ navigation }: RootTabScreenProps<'SignUp'>) {
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/usuarios/SingUp.tsx" />
+      <Text style={styles.title}>Aqui tendremos el formulario para ingresar la informacion</Text>
+      
     </View>
   );
 }

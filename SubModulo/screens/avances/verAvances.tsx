@@ -5,12 +5,12 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 
-export default function SingUp({ navigation }: RootTabScreenProps<'SignUp'>) {
+export default function VerAvances({ navigation }: RootTabScreenProps<'VerAvances'>) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
+      <Text style={styles.title}>Avances</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/usuarios/SingUp.tsx" />
+      
     </View>
   );
 }
