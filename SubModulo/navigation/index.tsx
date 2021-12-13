@@ -21,6 +21,8 @@ import SignUP from '../screens/general/SignUp';
 
 import Proyectos from '../screens/proyectos/verproyectos';
 import Inscripciones from '../screens/inscripciones/verinscripciones';
+import CrearInscripcion from '../screens/inscripciones/crearinscripcion';
+
 import Avances from '../screens/avances/verAvances';
 
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -50,6 +52,8 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+      <Stack.Screen name='CrearInscripcion' component={CrearInscripcion} options={{ headerShown: true, headerBackVisible: false }} />
+      
     </Stack.Navigator>
   );
 }
